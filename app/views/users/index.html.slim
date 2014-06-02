@@ -1,0 +1,51 @@
+h1
+  | users
+
+div.list_view
+  table class=("table table-boderd table-striped table-hover")
+    thead
+      tr
+        th Name
+        th Email
+        th Nickname
+        th Nickname kana
+        th Auth
+        th Last login
+        th Premium flg
+        th Premium limit
+        th Profile
+        th Temporary flg
+        th.buttons
+
+
+    tbody
+      - @users.each do |user|
+        tr
+          td= user.name
+          td= user.email
+          td= user.nickname
+          td= user.nickname_kana
+          td= user.auth
+          td= user.last_login
+          td= user.premium_flg
+          td= user.premium_limit
+          td= user.profile
+          td= user.temporary_flg
+          td.buttons
+            = link_to 'Show', user, :class => 'btn btn-info'
+            = link_to 'Edit', edit_user_path(user), :class => 'btn btn-success'
+            = link_to('Destroy',
+              user,
+              method: :delete,
+              :remote => true,
+              :onclick => 'if(window.confirm("本当によろしいですか？？")){$(this).closest("tr").fadeOut()}',
+              data: {},
+              :class => 'btn btn-danger')
+
+  br
+
+  = paginate @users
+
+  br
+
+  = link_to '新規登録', new_user_path, :class => "btn btn-primary"

@@ -1,0 +1,20 @@
+h1
+  | 詳細 <%= singular_table_name %>
+div.detail_view
+  p id="notice"
+    = notice
+
+  table.table.table-bordered.table-striped
+    tr
+      th Name
+      td= @<%= singular_table_name %>.name
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+    tr
+      th <%= attribute.human_name %>
+      td= @<%= singular_table_name %>.<%= attribute.name %>
+
+<% end -%>
+  = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-success"
+  br
+  br
+  = link_to 'Back', <%= index_helper %>_path, :class => "btn btn-primary"

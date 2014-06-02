@@ -1,0 +1,7 @@
+/*
+ *= require bootstrap
+ *= require angular-ui-select2
+ *= require base
+ *= require_tree .
+ *= require_self
+ */

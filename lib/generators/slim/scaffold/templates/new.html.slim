@@ -1,0 +1,7 @@
+h1
+  | 新規登録 <%= singular_table_name %>
+
+div.detail_view
+  = render 'form'
+
+  = link_to 'Back', <%= index_helper %>_path, :class => "btn btn-primary"

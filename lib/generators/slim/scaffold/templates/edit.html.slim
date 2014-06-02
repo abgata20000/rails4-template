@@ -1,0 +1,9 @@
+h1
+  | 編集 <%= singular_table_name %>
+div.detail_view
+  = render 'form'
+
+  = link_to 'Show', @<%= singular_table_name %>, :class => "btn btn-info"
+  br
+  br
+  = link_to 'Back', <%= index_helper %>_path, :class => "btn btn-primary"

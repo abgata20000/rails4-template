@@ -1,0 +1,9 @@
+h1
+  | 編集 user
+div.detail_view
+  = render 'form'
+
+  = link_to 'Show', @user, :class => "btn btn-info"
+  br
+  br
+  = link_to 'Back', users_path, :class => "btn btn-primary"

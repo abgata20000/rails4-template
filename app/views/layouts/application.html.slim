@@ -1,0 +1,56 @@
+doctype html
+html
+  head
+    title SampleApp1
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    header#header
+      .navbar.navbar-default.navbar-static-top role="navigation"
+        .container
+          .navbar-header
+            button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="/"  sampleApp1
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              /! %li.active
+              li
+                a href="/"
+
+            ul.nav.navbar-nav.navbar-right
+              - if current_user
+
+                form.navbar-form.navbar-left role="search"
+                  .form-group
+                    input.form-control placeholder="Search" type="text"
+                  button.btn.btn-default type="button"
+                    i.glyphicon.glyphicon-search
+                li.user_img
+
+                li.user_name
+                  = link_to current_user.email, edit_user_path(current_user.id)
+                li
+                  = link_to "ログアウト", :logout, method: :post
+              - else
+                li
+                  = link_to "ログイン", :login
+
+    div#maincontents.container
+
+      - if flash[:notice] || flash[:alert]
+        div
+          - if flash[:notice]
+            p#notice.alert.alert-info= flash[:notice]
+          - if flash[:alert]
+            p#alert.alert.alert-danger= flash[:alert]
+
+
+
+
+
+      = yield

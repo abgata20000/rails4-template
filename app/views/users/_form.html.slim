@@ -1,0 +1,44 @@
+- if @user.errors.any?
+  div id="error_explanation"
+    h2
+      = pluralize(@user.errors.count, "error")
+      | prohibited this user from being saved:
+
+    ul
+      - @user.errors.full_messages.each do |msg|
+        li= msg
+
+= form_for(@user) do |f|
+  table.table.table-bordered.table-striped.table_form
+
+
+    tr
+      th= f.label :email
+      td= f.text_field :email, :class => "form-control"
+
+    tr
+      th= f.label :name
+      td= f.text_field :name, :class => "form-control"
+
+    tr
+      th= f.label :nickname
+      td= f.text_field :nickname, :class => "form-control"
+
+
+    tr
+      th= f.label :nickname_kana
+      td= f.text_field :nickname_kana, :class => "form-control"
+
+    tr
+      th= f.label :password
+      td= f.password_field :password, :class => "form-control"
+
+    tr
+      th= f.label :password_confirmation
+      td= f.password_field :password_confirmation, :class => "form-control"
+
+
+  div class="actions"
+    button type="submit" class="btn btn-primary"
+      | 登録
+  br

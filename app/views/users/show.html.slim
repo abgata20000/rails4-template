@@ -1,0 +1,50 @@
+h1
+  | 詳細 user
+div.detail_view
+  p id="notice"
+    = notice
+
+  table.table.table-bordered.table-striped
+    tr
+      th Name
+      td= @user.name
+    tr
+      th Email
+      td= @user.email
+
+    tr
+      th Nickname
+      td= @user.nickname
+
+    tr
+      th Nickname kana
+      td= @user.nickname_kana
+
+    tr
+      th Auth
+      td= @user.auth
+
+    tr
+      th Last login
+      td= @user.last_login
+
+    tr
+      th Premium flg
+      td= @user.premium_flg
+
+    tr
+      th Premium limit
+      td= @user.premium_limit
+
+    tr
+      th Profile
+      td= @user.profile
+
+    tr
+      th Temporary flg
+      td= @user.temporary_flg
+
+  = link_to 'Edit', edit_user_path(@user), :class => "btn btn-success"
+  br
+  br
+  = link_to 'Back', users_path, :class => "btn btn-primary"
