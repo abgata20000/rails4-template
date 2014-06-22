@@ -1,7 +1,9 @@
-h1
-  | 新規登録 <%= singular_table_name %>
+.page-header
+  h1
+    | 新規登録&nbsp;<%= singular_table_name %>
 
-div.detail_view
-  = render 'form'
-
-  = link_to 'Back', <%= index_helper %>_path, :class => "btn btn-primary"
+.row.detail_view
+  .col-md-8
+    = render 'form'
+  .col-md-4
+    = link_to '戻る', <%= index_helper %>_path, :class => "btn btn-danger btn-lg btn-block"

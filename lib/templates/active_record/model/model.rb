@@ -10,6 +10,7 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 <% end -%>
 
   default_scope {where(:enabled => true)}
+  validates :name, presence: true
 
   def to_s
     <%- if attributes.map{ |a| a.name }.include?('name') -%>

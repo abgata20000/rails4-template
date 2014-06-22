@@ -1,20 +1,23 @@
-h1
-  | 詳細 <%= singular_table_name %>
-div.detail_view
-  p id="notice"
-    = notice
+.page-header
+  h1
+    | 詳細 &nbsp; <%= singular_table_name %>
 
-  table.table.table-bordered.table-striped
-    tr
-      th Name
-      td= @<%= singular_table_name %>.name
+.row
+  .col-md-8
+    .panel.panel-default
+      .panel-heading
+        | Name
+      .panel-body
+        = @<%= singular_table_name %>.name
+
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
-    tr
-      th <%= attribute.human_name %>
-      td= @<%= singular_table_name %>.<%= attribute.name %>
+    .panel.panel-default
+      .panel-heading
+        | <%= attribute.human_name %>
+      .panel-body
+        = @<%= singular_table_name %>.<%= attribute.name %>
 
 <% end -%>
-  = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-success"
-  br
-  br
-  = link_to 'Back', <%= index_helper %>_path, :class => "btn btn-primary"
+  .col-md-4
+    = link_to '編集', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-success btn-lg btn-block"
+    = link_to '戻る', <%= index_helper %>_path, :class => "btn btn-danger btn-lg btn-block"
