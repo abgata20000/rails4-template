@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module SampleApp1
   class Application < Rails::Application
     # set timezone
-    config.time_zone = 'Asia/Tokyo'
+    config.time_zone = 'Tokyo'
 
     # model generate default activerecord
     config.generators do |g|
@@ -32,10 +32,20 @@ module SampleApp1
       g.javascripts false
       g.test_framework = "rspec"
       # コントローラ、ヘルパー、ビューのテストを生成しない
-      # g.controller_specs = false
-      # g.helper_specs = false
-      # g.view_specs = false
+      g.controller_specs = false
+      g.helper_specs = false
+      g.view_specs = false
+
+      g.test_framework :rspec,
+          fixtures: true,
+          view_specs: false,
+          helper_specs: false,
+          routing_specs: false,
+          controller_specs: true,
+          request_specs: false
+      g.fixture_replacment :factory_girl, dir: "spec/factories"
     end
+
 
     # js load file
     config.assets.paths << Rails.root.join("lib", "assets", "javascripts")

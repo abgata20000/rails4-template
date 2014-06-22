@@ -54,16 +54,35 @@ gem "angular-gem", '~> 1.2.1' # run => rails g angular:install
 gem 'angular-ui-select2-rails'
 
 
-# RSpec
+group :development, :test do
+  gem 'pry-rails'
+
+  gem 'hirb'
+
+  gem 'hirb-unicode'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # Test Tools
+  gem 'rspec-rails', '~> 3.0.1'
+  gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
+
+  gem 'guard-rspec'
+
+end
+
 group :test do
-  gem "rspec"
-  gem "rspec-rails"
-  gem 'factory_girl'
+  gem "faker"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
 end
 
 
-
-gem 'nokogiri', '1.6.1' # バージョンしてしないとエラー出るようになってしまった
+gem 'nokogiri' 
 
 # 複雑なスクレイピング
 gem 'mechanize'
