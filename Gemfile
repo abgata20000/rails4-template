@@ -82,7 +82,7 @@ group :test do
 end
 
 
-gem 'nokogiri' 
+gem 'nokogiri'
 
 # 複雑なスクレイピング
 gem 'mechanize'
@@ -92,6 +92,7 @@ gem 'whenever', :require => false
 
 # paging
 gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # use aws s3
 gem 'aws-sdk'
